@@ -18,10 +18,11 @@
   width: 300px;
   line-height: 25px;
   font-size: 16px;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   background-color: lightgrey;
   border-style: none;
   border-radius: 5px;
+  padding-left: 10px;
 }
 
 .button {
@@ -36,6 +37,8 @@
 
 .text {
   font-family: sans-serif;
+  line-height: 25px;
   border: 2px solid lightgrey;
   color: rgb(94, 92, 92);
+  padding-left: 10px;
 }
