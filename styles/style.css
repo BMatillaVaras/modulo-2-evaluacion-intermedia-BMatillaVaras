@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+  margin-left: 10px;
+}
+
+.title,
+.title2 {
+  font-family: sans-serif;
+}
+
+.form {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  width: 300px;
+  line-height: 25px;
+  margin-bottom: 5px;
+  background-color: lightgrey;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.button {
+  width: 100px;
+  line-height: 25px;
+  background-color: rgb(104, 189, 160);
+  color: white;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.text {
+  font-family: sans-serif;
+  border: 2px solid lightgrey;
+  color: rgb(94, 92, 92);
+}
