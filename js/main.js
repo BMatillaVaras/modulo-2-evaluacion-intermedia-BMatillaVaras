@@ -1,10 +1,4 @@
-'use strict';
-
-const button = document.querySelector('.js-button');
-const input = document.querySelector('.js-input');
-const clue = document.querySelector('.js-clue');
-const meter = document.querySelector('.js-meter');
-let attempt = 0;
+"use strict";
 
 function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
@@ -12,22 +6,35 @@ function getRandomNumber(max) {
 const random = getRandomNumber(100);
 console.log(random);
 
-function proofClick (){
-  const inputValue = parseInt(input.value);
-  console.log(inputValue);
-  attempt++;
-  meter.innerHTML = 'Número de intentos: ' + attempt;
-  if (inputValue > random && inputValue <= 100) {
-    clue.innerHTML = 'Demasiado alto.';
-  } else if (inputValue < random && inputValue >=1) {
-    clue.innerHTML = 'Demasiado bajo.';
-  } else if (inputValue === random) {
-    clue.innerHTML = 'Has ganado campeona!!!';
-    button.removeEventListener('click', proofClick);
-  } else {
-    clue.innerHTML = 'El número debe estar entre 1 y 100';
-  }
+const button = document.querySelector(".js-button");
+const input = document.querySelector(".js-input");
+const clue = document.querySelector(".js-clue");
+const meter = document.querySelector(".js-meter");
+let attempt = 0;
+
+function inner(text) {
+  return (clue.innerHTML = text);
 }
 
-button.addEventListener('click', proofClick);
+function proofClick() {
+  const inputValue = parseInt(input.value);
+  console.log(inputValue);
+  if (inputValue > random && inputValue <= 100) {
+    inner("Demasiado alto.");
+  } else if (inputValue < random && inputValue >= 1) {
+    inner("Demasiado bajo.");
+  } else if (inputValue === random) {
+    inner("Has ganado campeona!!!");
+    button.removeEventListener("click", proofClick);
+  } else {
+    inner("El número debe estar entre 1 y 100");
+  }
+  counter();
+}
 
+function counter() {
+  attempt++;
+  meter.innerHTML = "Número de intentos: " + attempt;
+}
+
+button.addEventListener("click", proofClick);
