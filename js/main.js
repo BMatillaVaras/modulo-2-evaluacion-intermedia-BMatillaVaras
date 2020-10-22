@@ -4,7 +4,6 @@ function getRandomNumber(max) {
   return Math.ceil(Math.random() * max);
 }
 const random = getRandomNumber(100);
-console.log(random);
 
 const button = document.querySelector(".js-button");
 const input = document.querySelector(".js-input");
@@ -29,12 +28,14 @@ function proofClick() {
   } else {
     inner("El número debe estar entre 1 y 100");
   }
-  counter();
 }
 
 function counter() {
   attempt++;
   meter.innerHTML = "Número de intentos: " + attempt;
 }
-
-button.addEventListener("click", proofClick);
+function handler() {
+  proofClick();
+  counter();
+}
+button.addEventListener("click", handler);
